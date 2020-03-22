@@ -3,6 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <!--这个文件只是对bean的测试，不作为整合时的spring或springmvc的配置文件-->
+
     <!--setter注入、util赋值集合-->
     <bean id="user1" class="com.ex.spring.entity.User">
         <property name="uname" value="WeiJianWei"></property>
