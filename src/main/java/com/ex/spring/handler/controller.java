@@ -18,13 +18,10 @@ public class controller {
 
     @RequestMapping("/get_data")
     public ModelAndView get_data(){
-        System.out.println("-----------进入了映射方法--------");
         List<Dept> list = deptService.getAll();
-        System.out.println("==========查询完了结果==============");
         ModelAndView mv=new ModelAndView();
         mv.addObject("all",list);
         mv.setViewName("success");
-        System.out.println("************设置好了model**********");
         return mv;
     }
 
