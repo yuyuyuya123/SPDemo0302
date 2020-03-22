@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--setter注入、util赋值集合-->
+    <bean id="user1" class="com.ex.spring.entity.User">
+        <property name="uname" value="WeiJianWei"></property>
+        <property name="children" ref="WeiChildrenList"></property>
+    </bean>
+
+    <util:list id="WeiChildrenList">
+        <bean id="child21" class="com.ex.spring.entity.Child">
+            <property name="childName" value="WeiYuanHang"></property>
+        </bean>
+        <bean id="child22" class="com.ex.spring.entity.Child">
+            <property name="childName" value="WeiJuan"></property>
+        </bean>
+    </util:list>
+
+    <!--构造函数注入、bean子标签引入、bean子标签赋值集合（1:n）-->
+    <bean id="user2" class="com.ex.spring.entity.User">
+        <constructor-arg index="0" value="2"></constructor-arg>
+        <constructor-arg index="1" value="LiHuaHua"></constructor-arg>
+        <constructor-arg index="2" value="male"></constructor-arg>
+        <constructor-arg name="children">
+            <list>
+             <bean id="child11" class="com.ex.spring.entity.Child">
+                 <property name="childName" value="LiZi"></property>
+             </bean>
+                <bean id="child12" class="com.ex.spring.entity.Child">
+                    <property name="childName" value="LiMei"></property>
+                </bean>
+            </list>
+        </constructor-arg>
+        <!--n:n 员工和公司-->
+        <constructor-arg name="companys">
+            <list>
+                <bean id="company1" class="com.ex.spring.entity.Company">
+                    <property name="companyName" value="ali"></property>
+                    <property name="employees" ref="empList"></property>
+                </bean>
+                <bean id="company2" class="com.ex.spring.entity.Company">
+                    <property name="companyName" value="dongjing"></property>
+                    <property name="employees" ref="empList"></property>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <util:list id="empList">
+        <bean id="user1" class="com.ex.spring.entity.User">
+            <property name="uname" value="WeiJianWei"></property>
+            <property name="companys">
+                <list>
+                    <bean id="company1" class="com.ex.spring.entity.Company"></bean>
+                    <bean id="company2" class="com.ex.spring.entity.Company"></bean>
+                </list>
+            </property>
+        </bean>
+        <bean id="user2" class="com.ex.spring.entity.User">
+            <property name="uname" value="LiHuaHua"></property>
+            <property name="companys">
+                <list>
+                    <bean id="company1" class="com.ex.spring.entity.Company"></bean>
+                    <bean id="company2" class="com.ex.spring.entity.Company"></bean>
+                </list>
+            </property>
+        </bean>
+    </util:list>
+
+
+
+</beans>
