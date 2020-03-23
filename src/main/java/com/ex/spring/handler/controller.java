@@ -78,4 +78,14 @@ public class controller {
         return map;
     }
 
+    //测试两个ViewResolver配置不同路径的view
+    @RequestMapping("/testTwoViewResolver")
+    public String testTwoViewResolver(@RequestParam("dname") String dname,Map<String,Dept> map){
+        Dept dept=new Dept();
+        dept.setLoc("NanJing");
+        dept.setDname(dname);
+        map.put("dept",dept);
+        return "welcome";
+    }
+
 }

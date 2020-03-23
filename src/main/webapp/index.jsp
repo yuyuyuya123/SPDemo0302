@@ -14,6 +14,14 @@
 <button type="button" class="btn btn-warning" onclick="getListDept()">ajax_List</button>
 <button type="button" class="btn btn-primary" onclick="getMapDepts()">ajax_Map</button>
 
+
+<div class="card mt-5 p-3" style="width: 400px">
+    <form action="testTwoViewResolver" method="post">
+        姓名：<input type="text" name="dname" class="form-control btn-light"/><br>
+        <input type="submit" value="提交" class="btn btn-success"/>
+    </form>
+</div>
+
 <script src="js/jquery-3.4.1.js" type="application/javascript"></script>
 <script src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="js/bootstrap.min.js" type="application/javascript"></script>
@@ -21,16 +29,6 @@
     function str() {
         $.ajax({
             url:"ajaxTest",
-            dataType:"json",
-            success:function (data) {
-                alert(data);
-            }
-        })
-    }
-
-    function one() {
-        $.ajax({
-            url:"ajaxIntTest",
             dataType:"json",
             success:function (data) {
                 alert(data);
