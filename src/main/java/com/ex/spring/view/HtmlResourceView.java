@@ -1,7 +1,6 @@
-package com.ex.spring.viewResolver;
+package com.ex.spring.view;
 
 import org.springframework.web.servlet.view.InternalResourceView;
-import org.springframework.web.servlet.view.JstlView;
 
 import java.io.File;
 import java.util.Locale;
